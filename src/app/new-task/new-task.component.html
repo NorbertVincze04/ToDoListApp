@@ -1,1 +1,8 @@
-<p>handle user input "add task" with reactive form</p>
+<app-base-div>
+  <h2>New Task</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" formControlName="title" />
+    <button type="submit">Save Task</button>
+  </form>
+</app-base-div>

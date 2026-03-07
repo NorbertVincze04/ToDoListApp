@@ -1,4 +1,17 @@
 <app-base-div>
-  <p>archive works!</p>
-  <p>status: archived</p>
+  <div>
+    <h2>Tasks</h2>
+    <ul>
+      @for (task of tasks; track task.id) {
+        @if (task.status === "completed") {
+          <li>
+            {{ task.title }}
+            {{ task.status }}
+            <button (click)="toggleCompletion(task.id)">Reset</button>
+            <button (click)="deleteTask(task.id)">Delete</button>
+          </li>
+        }
+      }
+    </ul>
+  </div>
 </app-base-div>
