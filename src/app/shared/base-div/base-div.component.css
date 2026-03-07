@@ -1,0 +1,12 @@
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #333;
+  color: white;
+  width: 800px;
+}
