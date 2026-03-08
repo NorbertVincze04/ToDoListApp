@@ -5,16 +5,56 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 dialog {
   width: 90%;
   max-width: 30rem;
-  background-color: violet;
+  background-color: rgb(83, 82, 82);
   border-radius: 6px;
   border: none;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
   overflow: hidden;
   padding: 1rem;
   top: 5rem;
+  color: white;
+  z-index: 1000;
+}
+
+h2 {
+  text-underline-position: below;
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 255, 255);
+  text-underline-offset: 15px;
+}
+
+p {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 100px;
+  margin-right: 10px;
+}
+
+label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  margin-top: 0;
+}
+
+textarea {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  margin-top: 0;
 }

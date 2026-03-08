@@ -15,11 +15,17 @@ export class NewTaskComponent {
 
   form = new FormGroup({
     title: new FormControl(''),
+    description: new FormControl(''),
+    dueDate: new FormControl(new Date()),
   });
 
   onSubmit() {
     if (this.form.value.title) {
-      this.tasksService.addTask(this.form.value.title);
+      this.tasksService.addTask(
+        this.form.value.title,
+        this.form.value.description!,
+        this.form.value.dueDate!,
+      );
       this.form.reset();
       this.cancel.emit();
     }

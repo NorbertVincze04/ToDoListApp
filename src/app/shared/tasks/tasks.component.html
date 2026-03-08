@@ -4,10 +4,16 @@
     @for (task of tasks; track task.id) {
       @if (task.status === "pending") {
         <li>
-          {{ task.title }}
-          {{ task.status }}
-          <button (click)="toggleCompletion(task.id)">Complete</button>
-          <button (click)="deleteTask(task.id)">Delete</button>
+          <div>
+            <p class="title">{{ task.title }}</p>
+            <p>{{ task.description }}</p>
+            <p>{{ task.dueDate | date }}</p>
+          </div>
+
+          <p class="buttons">
+            <button (click)="toggleCompletion(task.id)">Complete</button>
+            <button (click)="deleteTask(task.id)">Delete</button>
+          </p>
         </li>
       }
     }

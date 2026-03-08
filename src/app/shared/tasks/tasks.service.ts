@@ -21,10 +21,12 @@ export class TasksService {
     return this.tasks;
   }
 
-  addTask(title: string) {
+  addTask(title: string, description: string, dueDate: Date) {
     const newTask: Task = {
       id: new Date().getTime().toString(),
       title,
+      description,
+      dueDate,
       status: 'pending',
     };
     this.tasks.push(newTask);

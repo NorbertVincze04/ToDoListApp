@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Pipe } from '@angular/core';
 import { BaseDivComponent } from '../shared/base-div/base-div.component';
 import { TasksService } from '../shared/tasks/tasks.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-archive',
   standalone: true,
-  imports: [BaseDivComponent],
+  imports: [BaseDivComponent, DatePipe],
   templateUrl: './archive.component.html',
   styleUrl: './archive.component.css',
 })

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TasksService } from './tasks.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
