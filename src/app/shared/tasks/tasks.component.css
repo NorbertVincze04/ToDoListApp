@@ -1,6 +1,7 @@
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
@@ -12,6 +13,7 @@ li {
   flex-direction: column;
   border-radius: 5px;
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
 p {

@@ -7,3 +7,9 @@ a {
 a:hover {
   color: #b8b8b8;
 }
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
