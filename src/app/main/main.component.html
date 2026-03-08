@@ -1,4 +1,8 @@
+@if (addingTask) {
+  <app-new-task (cancel)="onCancel()"></app-new-task>
+}
+
 <app-base-div>
   <app-tasks></app-tasks>
-  <button routerLink="../new-task">Add Task</button>
+  <button (click)="onStartAddTask()">Add Task</button>
 </app-base-div>
