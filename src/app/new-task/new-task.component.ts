@@ -12,6 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class NewTaskComponent {
   constructor(private tasksService: TasksService) {}
   @Output() cancel = new EventEmitter<void>();
+  @Output() cancelEdit = new EventEmitter<void>();
 
   form = new FormGroup({
     title: new FormControl(''),
@@ -33,5 +34,9 @@ export class NewTaskComponent {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  onCancelEdit() {
+    this.cancelEdit.emit();
   }
 }

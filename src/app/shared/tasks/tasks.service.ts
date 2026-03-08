@@ -45,4 +45,18 @@ export class TasksService {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this.saveTasks();
   }
+
+  getCurrentTasks(id: string) {
+    return this.tasks.find((t) => t.id === id);
+  }
+
+  updateTask(id: string, title: string, description: string, dueDate: Date) {
+    const task = this.tasks.find((t) => t.id === id);
+    if (task) {
+      task.title = title;
+      task.description = description;
+      task.dueDate = dueDate;
+      this.saveTasks();
+    }
+  }
 }

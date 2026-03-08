@@ -4,7 +4,12 @@
       @if (task.status === "pending") {
         <li>
           <div>
-            <p class="title">{{ task.title }}</p>
+            <p class="title">
+              {{ task.title }}
+              <a (click)="editTask(task.id)">
+                <i class="fas fa-wrench fa-sm"></i
+              ></a>
+            </p>
             <p>{{ task.description }}</p>
             <p>{{ task.dueDate | date }}</p>
           </div>

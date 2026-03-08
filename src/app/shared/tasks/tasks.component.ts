@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TasksService } from './tasks.service';
 import { DatePipe } from '@angular/common';
+import { EventEmitter, Output } from '@angular/core';
+import { Task } from './tasks.model';
 
 @Component({
   selector: 'app-tasks',
@@ -11,6 +13,7 @@ import { DatePipe } from '@angular/common';
 })
 export class TasksComponent {
   constructor(private tasksService: TasksService) {}
+  @Output() edit = new EventEmitter<Task>();
 
   get tasks() {
     return this.tasksService.getTasks();
@@ -21,5 +24,12 @@ export class TasksComponent {
   }
   deleteTask(id: string) {
     this.tasksService.deleteTask(id);
+  }
+
+  editTask(id: string) {
+    const task = this.tasksService.getCurrentTasks(id);
+    if (task) {
+      this.edit.emit(task);
+    }
   }
 }

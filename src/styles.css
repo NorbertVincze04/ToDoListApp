@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #b8b8b8;
+}
+
 button {
   border-radius: 5px;
   border: none;
@@ -8,6 +12,7 @@ button {
   color: black;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
 
 button:hover {

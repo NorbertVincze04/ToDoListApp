@@ -2,10 +2,17 @@
   <app-new-task (cancel)="onCancel()"></app-new-task>
 }
 
+@if (editingTask && selectedTask) {
+  <app-edit-task
+    [task]="selectedTask"
+    (cancelEdit)="onCancelEdit()"
+  ></app-edit-task>
+}
+
 <app-base-div>
   <div class="title">
     <h2>Tasks</h2>
     <button (click)="onStartAddTask()">Add Task</button>
   </div>
-  <app-tasks></app-tasks>
+  <app-tasks (edit)="onStartEditTask($event)"></app-tasks>
 </app-base-div>
