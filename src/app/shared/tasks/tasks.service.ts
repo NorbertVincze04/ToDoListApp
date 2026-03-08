@@ -21,12 +21,18 @@ export class TasksService {
     return this.tasks;
   }
 
-  addTask(title: string, description: string, dueDate: Date) {
+  addTask(
+    title: string,
+    description: string,
+    dueDate: Date,
+    priority: 'low' | 'medium' | 'high',
+  ) {
     const newTask: Task = {
       id: new Date().getTime().toString(),
       title,
       description,
       dueDate,
+      priority,
       status: 'pending',
     };
     this.tasks.push(newTask);
@@ -50,11 +56,18 @@ export class TasksService {
     return this.tasks.find((t) => t.id === id);
   }
 
-  updateTask(id: string, title: string, description: string, dueDate: Date) {
+  updateTask(
+    id: string,
+    title: string,
+    description: string,
+    priority: 'low' | 'medium' | 'high',
+    dueDate: Date,
+  ) {
     const task = this.tasks.find((t) => t.id === id);
     if (task) {
       task.title = title;
       task.description = description;
+      task.priority = priority;
       task.dueDate = dueDate;
       this.saveTasks();
     }

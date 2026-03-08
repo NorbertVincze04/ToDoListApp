@@ -45,16 +45,17 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input {
+input,
+textarea,
+select {
   padding: 0.5rem;
   border-radius: 4px;
   border: none;
   margin-top: 0;
 }
 
-textarea {
+option {
   padding: 0.5rem;
-  border-radius: 4px;
-  border: none;
-  margin-top: 0;
+  background-color: #333;
+  color: white;
 }

@@ -18,6 +18,7 @@ export class NewTaskComponent {
     title: new FormControl(''),
     description: new FormControl(''),
     dueDate: new FormControl(new Date()),
+    priority: new FormControl<'low' | 'medium' | 'high'>('low'),
   });
 
   onSubmit() {
@@ -26,6 +27,7 @@ export class NewTaskComponent {
         this.form.value.title,
         this.form.value.description!,
         this.form.value.dueDate!,
+        this.form.value.priority!,
       );
       this.form.reset();
       this.cancel.emit();

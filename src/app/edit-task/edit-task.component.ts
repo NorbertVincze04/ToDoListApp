@@ -20,14 +20,15 @@ export class EditTaskComponent implements OnInit {
   form = new FormGroup({
     title: new FormControl(),
     description: new FormControl(),
+    priority: new FormControl<'low' | 'medium' | 'high'>('low'),
     dueDate: new FormControl(),
   });
-
   ngOnInit() {
     if (this.task) {
       this.form.patchValue({
         title: this.task.title,
         description: this.task.description,
+        priority: this.task.priority,
         dueDate: this.task.dueDate,
       });
     }
@@ -39,6 +40,7 @@ export class EditTaskComponent implements OnInit {
         this.task.id,
         this.form.value.title,
         this.form.value.description!,
+        this.form.value.priority!,
         this.form.value.dueDate!,
       );
       this.form.reset();
