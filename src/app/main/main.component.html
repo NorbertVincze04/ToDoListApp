@@ -12,6 +12,32 @@
 <app-base-div>
   <div class="title">
     <h2>Tasks</h2>
+    <div class="sorting">
+      <label for="sort">Sort:</label>
+      <select
+        id="sort"
+        name="sort"
+        [(ngModel)]="sortingValue"
+        (change)="onSortingChange()"
+      >
+        <option value="Ascendent">Ascendent</option>
+        <option value="Descendent">Descendent</option>
+      </select>
+    </div>
+    <div class="filtering">
+      <label for="filter">Filter:</label>
+      <select
+        id="filter"
+        name="filter"
+        [(ngModel)]="filteringValue"
+        (change)="onFilteringChange()"
+      >
+        <option value="None">None</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+    </div>
     <button (click)="onStartAddTask()">Add Task</button>
   </div>
   <app-tasks (edit)="onStartEditTask($event)"></app-tasks>

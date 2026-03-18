@@ -3,3 +3,20 @@
   justify-content: space-between;
   align-items: center;
 }
+
+label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+select {
+  border-radius: 4px;
+  border: none;
+  margin-top: 0;
+}
+
+.sorting,
+.filtering {
+  display: flex;
+  gap: 5px;
+}

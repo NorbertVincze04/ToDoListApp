@@ -6,9 +6,11 @@ import { Task } from './tasks.model';
 })
 export class TasksService {
   private tasks: Task[] = [];
+  private filteredTasks: Task[] = [];
 
   constructor() {
     const tasks = localStorage.getItem('tasks');
+    this.filteredTasks = this.tasks;
     if (tasks) {
       this.tasks = JSON.parse(tasks);
     }
@@ -18,14 +20,14 @@ export class TasksService {
   }
 
   getTasks(): Task[] {
-    return this.tasks;
+    return this.filteredTasks;
   }
 
   addTask(
     title: string,
     description: string,
     dueDate: Date,
-    priority: 'low' | 'medium' | 'high',
+    priority: 'Low' | 'Medium' | 'High',
   ) {
     const newTask: Task = {
       id: new Date().getTime().toString(),
@@ -37,6 +39,7 @@ export class TasksService {
     };
     this.tasks.push(newTask);
     this.saveTasks();
+    this.filteredTasks = this.tasks;
   }
 
   toggleTaskCompletion(id: string) {
@@ -44,12 +47,14 @@ export class TasksService {
     if (task) {
       task.status = task.status === 'pending' ? 'completed' : 'pending';
       this.saveTasks();
+      this.filteredTasks = this.tasks;
     }
   }
 
   deleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this.saveTasks();
+    this.filteredTasks = this.tasks;
   }
 
   getCurrentTasks(id: string) {
@@ -60,7 +65,7 @@ export class TasksService {
     id: string,
     title: string,
     description: string,
-    priority: 'low' | 'medium' | 'high',
+    priority: 'Low' | 'Medium' | 'High',
     dueDate: Date,
   ) {
     const task = this.tasks.find((t) => t.id === id);
@@ -70,6 +75,28 @@ export class TasksService {
       task.priority = priority;
       task.dueDate = dueDate;
       this.saveTasks();
+    }
+  }
+
+  sortAsc() {
+    this.filteredTasks = [...this.filteredTasks].sort((a, b) =>
+      a.dueDate > b.dueDate ? 1 : -1,
+    );
+  }
+
+  sortDesc() {
+    this.filteredTasks = [...this.filteredTasks].sort((a, b) =>
+      a.dueDate < b.dueDate ? 1 : -1,
+    );
+  }
+
+  filterByPriority(priority: string) {
+    if (priority === 'None') {
+      this.filteredTasks = this.tasks;
+    } else {
+      this.filteredTasks = this.tasks.filter(
+        (task) => task.priority.toLowerCase() === priority.toLowerCase(),
+      );
     }
   }
 }

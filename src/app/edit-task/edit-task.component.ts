@@ -20,7 +20,7 @@ export class EditTaskComponent implements OnInit {
   form = new FormGroup({
     title: new FormControl(),
     description: new FormControl(),
-    priority: new FormControl<'low' | 'medium' | 'high'>('low'),
+    priority: new FormControl<'Low' | 'Medium' | 'High'>('Low'),
     dueDate: new FormControl(),
   });
   ngOnInit() {

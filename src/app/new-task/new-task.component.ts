@@ -18,7 +18,7 @@ export class NewTaskComponent {
     title: new FormControl(''),
     description: new FormControl(''),
     dueDate: new FormControl(new Date()),
-    priority: new FormControl<'low' | 'medium' | 'high'>('low'),
+    priority: new FormControl<'Low' | 'Medium' | 'High'>('Low'),
   });
 
   onSubmit() {
