@@ -24,13 +24,13 @@ export class MainComponent implements OnInit {
   addingTask = false;
   editingTask = false;
   selectedTask: Task | null = null;
-  sortingValue = 'Ascendent';
+  sortingValue = 'None';
   filteringValue = 'None';
 
   constructor(private tasksService: TasksService) {}
 
   ngOnInit() {
-    this.tasksService.sortAsc();
+    this.tasksService.sortTasksByDueDate('None');
     this.tasksService.filterByPriority('None');
   }
 
@@ -54,9 +54,11 @@ export class MainComponent implements OnInit {
 
   onSortingChange() {
     if (this.sortingValue === 'Ascendent') {
-      this.tasksService.sortAsc();
+      this.tasksService.sortTasksByDueDate('Ascendent');
     } else if (this.sortingValue === 'Descendent') {
-      this.tasksService.sortDesc();
+      this.tasksService.sortTasksByDueDate('Descendent');
+    } else {
+      this.tasksService.sortTasksByDueDate('None');
     }
   }
 

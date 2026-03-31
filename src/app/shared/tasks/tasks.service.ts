@@ -7,16 +7,37 @@ import { Task } from './tasks.model';
 export class TasksService {
   private tasks: Task[] = [];
   private filteredTasks: Task[] = [];
+  private currentSort: string = 'None';
+  private currentFilter: string = 'None';
 
   constructor() {
     const tasks = localStorage.getItem('tasks');
-    this.filteredTasks = this.tasks;
     if (tasks) {
       this.tasks = JSON.parse(tasks);
     }
+    this.applyFiltersAndSort();
   }
   private saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  private applyFiltersAndSort() {
+    let tasks = [...this.tasks];
+
+    if (this.currentFilter !== 'None') {
+      tasks = tasks.filter(
+        (task) =>
+          task.priority.toLowerCase() === this.currentFilter.toLowerCase(),
+      );
+    }
+
+    if (this.currentSort === 'Ascendent') {
+      tasks = tasks.sort((a, b) => (a.dueDate > b.dueDate ? 1 : -1));
+    } else if (this.currentSort === 'Descendent') {
+      tasks = tasks.sort((a, b) => (a.dueDate < b.dueDate ? 1 : -1));
+    }
+
+    this.filteredTasks = tasks;
   }
 
   getTasks(): Task[] {
@@ -39,7 +60,7 @@ export class TasksService {
     };
     this.tasks.push(newTask);
     this.saveTasks();
-    this.filteredTasks = this.tasks;
+    this.applyFiltersAndSort();
   }
 
   toggleTaskCompletion(id: string) {
@@ -47,14 +68,14 @@ export class TasksService {
     if (task) {
       task.status = task.status === 'pending' ? 'completed' : 'pending';
       this.saveTasks();
-      this.filteredTasks = this.tasks;
+      this.applyFiltersAndSort();
     }
   }
 
   deleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this.saveTasks();
-    this.filteredTasks = this.tasks;
+    this.applyFiltersAndSort();
   }
 
   getCurrentTasks(id: string) {
@@ -78,25 +99,13 @@ export class TasksService {
     }
   }
 
-  sortAsc() {
-    this.filteredTasks = [...this.filteredTasks].sort((a, b) =>
-      a.dueDate > b.dueDate ? 1 : -1,
-    );
-  }
-
-  sortDesc() {
-    this.filteredTasks = [...this.filteredTasks].sort((a, b) =>
-      a.dueDate < b.dueDate ? 1 : -1,
-    );
+  sortTasksByDueDate(sortingValue: string) {
+    this.currentSort = sortingValue;
+    this.applyFiltersAndSort();
   }
 
   filterByPriority(priority: string) {
-    if (priority === 'None') {
-      this.filteredTasks = this.tasks;
-    } else {
-      this.filteredTasks = this.tasks.filter(
-        (task) => task.priority.toLowerCase() === priority.toLowerCase(),
-      );
-    }
+    this.currentFilter = priority;
+    this.applyFiltersAndSort();
   }
 }
