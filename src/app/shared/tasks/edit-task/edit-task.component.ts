@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TasksService } from '../shared/tasks/tasks.service';
-import { Task } from '../shared/tasks/tasks.model';
+import { TasksService } from '../tasks.service';
+import { Task } from '../tasks.model';
 import { EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 

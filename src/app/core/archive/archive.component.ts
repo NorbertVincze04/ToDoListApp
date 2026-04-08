@@ -1,6 +1,6 @@
 import { Component, Pipe } from '@angular/core';
-import { BaseDivComponent } from '../shared/base-div/base-div.component';
-import { TasksService } from '../shared/tasks/tasks.service';
+import { BaseDivComponent } from '../../ui-wrappers/base-div/base-div.component';
+import { TasksService } from '../../shared/tasks/tasks.service';
 import { DatePipe } from '@angular/common';
 
 @Component({

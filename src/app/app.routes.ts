@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { ArchiveComponent } from './archive/archive.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { MainComponent } from './core/main/main.component';
+import { ArchiveComponent } from './core/archive/archive.component';
+import { NotfoundComponent } from './core/notfound/notfound.component';
+import { AuthComponent } from './core/auth/auth.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'archive',
     component: ArchiveComponent,
+  },
+  {
+    path: 'login',
+    component: AuthComponent,
   },
   { path: '**', component: NotfoundComponent },
 ];
