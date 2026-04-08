@@ -6,6 +6,7 @@ import { EditTaskComponent } from '../../shared/tasks/edit-task/edit-task.compon
 import { Task } from '../../shared/tasks/tasks.model';
 import { FormsModule } from '@angular/forms';
 import { TasksService } from '../../shared/tasks/tasks.service';
+import { TopBarComponent } from '../../shared/top-bar/top-bar.component';
 
 @Component({
   selector: 'app-main',
@@ -16,6 +17,7 @@ import { TasksService } from '../../shared/tasks/tasks.service';
     NewTaskComponent,
     EditTaskComponent,
     FormsModule,
+    TopBarComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
