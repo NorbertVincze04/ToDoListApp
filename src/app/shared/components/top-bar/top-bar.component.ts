@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BaseDivComponent } from '../../ui-wrappers/base-div/base-div.component';
+import { BaseDivComponent } from '../../../ui-wrappers/base-div/base-div.component';
 
 @Component({
   selector: 'app-top-bar',

@@ -1,0 +1,107 @@
+src/
+├── app/
+│   ├── core/                         # Singleton services, app-wide logic
+│   │   ├── auth/
+│   │   │   ├── auth.service.ts
+│   │   │   ├── auth.guard.ts
+│   │   │   ├── auth.interceptor.ts
+│   │   │   └── auth.models.ts
+│   │   ├── http/
+│   │   │   ├── api.service.ts
+│   │   │   ├── http.interceptor.ts
+│   │   │   └── error-handler.service.ts
+│   │   ├── layout/
+│   │   │   ├── main-layout/
+│   │   │   ├── header/
+│   │   │   ├── footer/
+│   │   │   └── sidebar/
+│   │   ├── services/
+│   │   │   ├── logger.service.ts
+│   │   │   ├── config.service.ts
+│   │   │   └── storage.service.ts
+│   │   └── core.module.ts
+│   │
+│   ├── shared/                       # Reusable components, pipes, directives
+│   │   ├── components/
+│   │   │   ├── ui/
+│   │   │   │   ├── button/
+│   │   │   │   ├── modal/
+│   │   │   │   ├── table/
+│   │   │   │   └── loader/
+│   │   │   ├── form/
+│   │   │   │   ├── input/
+│   │   │   │   ├── select/
+│   │   │   │   └── validators/
+│   │   ├── directives/
+│   │   │   ├── autofocus.directive.ts
+│   │   │   └── permission.directive.ts
+│   │   ├── pipes/
+│   │   │   ├── date-format.pipe.ts
+│   │   │   └── truncate.pipe.ts
+│   │   ├── models/
+│   │   │   └── common.models.ts
+│   │   └── shared.module.ts
+│   │
+│   ├── features/                     # Feature modules (lazy-loaded)
+│   │   ├── dashboard/
+│   │   │   ├── components/
+│   │   │   ├── pages/
+│   │   │   │   └── dashboard-page/
+│   │   │   ├── services/
+│   │   │   ├── store/                # NgRx or state management
+│   │   │   │   ├── dashboard.actions.ts
+│   │   │   │   ├── dashboard.reducer.ts
+│   │   │   │   ├── dashboard.effects.ts
+│   │   │   │   └── dashboard.selectors.ts
+│   │   │   ├── dashboard-routing.module.ts
+│   │   │   └── dashboard.module.ts
+│   │   │
+│   │   ├── user/
+│   │   │   ├── components/
+│   │   │   ├── pages/
+│   │   │   │   ├── user-list/
+│   │   │   │   └── user-detail/
+│   │   │   ├── services/
+│   │   │   ├── store/
+│   │   │   ├── user-routing.module.ts
+│   │   │   └── user.module.ts
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── components/
+│   │   │   ├── pages/
+│   │   │   ├── services/
+│   │   │   ├── store/
+│   │   │   ├── admin-routing.module.ts
+│   │   │   └── admin.module.ts
+│   │
+│   ├── state/                        # Global state (optional NgRx)
+│   │   ├── app.actions.ts
+│   │   ├── app.reducer.ts
+│   │   ├── app.effects.ts
+│   │   └── app.selectors.ts
+│   │
+│   ├── environments/
+│   │   ├── environment.ts
+│   │   └── environment.prod.ts
+│   │
+│   ├── app-routing.module.ts         # Root routing with lazy loading
+│   ├── app.component.ts
+│   ├── app.module.ts
+│
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   ├── fonts/
+│   └── i18n/                         # Translations
+│
+├── styles/
+│   ├── abstracts/                    # variables, mixins
+│   ├── base/                         # reset, typography
+│   ├── components/                   # global styles for components
+│   ├── layouts/                      # layout styles
+│   └── themes/                       # theme configs
+│
+├── index.html
+├── main.ts
+├── polyfills.ts
+└── styles.scss

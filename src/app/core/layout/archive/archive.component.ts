@@ -1,8 +1,8 @@
 import { Component, Pipe } from '@angular/core';
-import { BaseDivComponent } from '../../ui-wrappers/base-div/base-div.component';
-import { TasksService } from '../../shared/tasks/tasks.service';
 import { DatePipe } from '@angular/common';
-import { TopBarComponent } from '../../shared/top-bar/top-bar.component';
+import { BaseDivComponent } from '../../../ui-wrappers/base-div/base-div.component';
+import { TopBarComponent } from '../../../shared/components/top-bar/top-bar.component';
+import { TasksService } from '../../../shared/components/tasks/tasks.service';
 
 @Component({
   selector: 'app-archive',

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './core/main/main.component';
-import { ArchiveComponent } from './core/archive/archive.component';
-import { NotfoundComponent } from './core/notfound/notfound.component';
 import { AuthComponent } from './core/auth/auth.component';
+import { ArchiveComponent } from './core/layout/archive/archive.component';
+import { MainComponent } from './core/layout/main/main.component';
+import { NotfoundComponent } from './core/layout/notfound/notfound.component';
 
 export const routes: Routes = [
   {

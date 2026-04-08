@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseDivComponent } from '../../ui-wrappers/base-div/base-div.component';
-import { TasksComponent } from '../../shared/tasks/tasks.component';
-import { NewTaskComponent } from '../../shared/tasks/new-task/new-task.component';
-import { EditTaskComponent } from '../../shared/tasks/edit-task/edit-task.component';
-import { Task } from '../../shared/tasks/tasks.model';
 import { FormsModule } from '@angular/forms';
-import { TasksService } from '../../shared/tasks/tasks.service';
-import { TopBarComponent } from '../../shared/top-bar/top-bar.component';
+import { BaseDivComponent } from '../../../ui-wrappers/base-div/base-div.component';
+import { EditTaskComponent } from '../../../shared/components/edit-task/edit-task.component';
+import { NewTaskComponent } from '../../../shared/components/new-task/new-task.component';
+import { TasksComponent } from '../../../shared/components/tasks/tasks.component';
+import { TasksService } from '../../../shared/components/tasks/tasks.service';
+import { TopBarComponent } from '../../../shared/components/top-bar/top-bar.component';
+import { Task } from '../../../shared/models/tasks.model';
 
 @Component({
   selector: 'app-main',
