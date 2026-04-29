@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { TasksService } from '../tasks/tasks.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 

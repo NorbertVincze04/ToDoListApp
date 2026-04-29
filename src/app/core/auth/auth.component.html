@@ -1,1 +1,44 @@
-<p>auth works!</p>
+<div class="login">
+  <h2>Log In</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p>
+      <label for="firstName">First Name:</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        formControlName="firstName"
+      />
+    </p>
+    <p>
+      <label for="lastName">Last Name:</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        formControlName="lastName"
+      />
+    </p>
+    <p>
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" formControlName="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+    </p>
+    <p>
+      <label for="birthDay">Birth Day:</label>
+      <input
+        type="date"
+        id="birthDay"
+        name="birthDay"
+        formControlName="birthDay"
+      />
+    </p>
+
+    <button type="submit">Log In</button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+    <button type="button" (click)="register()">Register</button>
+  </form>
+</div>
