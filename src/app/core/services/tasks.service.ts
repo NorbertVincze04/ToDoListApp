@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../models/tasks.model';
+import { environment } from '../../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +12,16 @@ export class TasksService {
   private currentSort: string = 'None';
   private currentFilter: string = 'None';
 
-  constructor() {
-    const tasks = localStorage.getItem('tasks');
+  constructor(private authService: AuthService) {
+    const tasks = localStorage.getItem(environment.TASK_STORAGE);
     if (tasks) {
       this.tasks = JSON.parse(tasks);
     }
     this.applyFiltersAndSort();
   }
+
   private saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    localStorage.setItem(environment.TASK_STORAGE, JSON.stringify(this.tasks));
   }
 
   private applyFiltersAndSort() {
@@ -61,6 +64,7 @@ export class TasksService {
       dueDate,
       priority,
       status: 'pending',
+      user: this.authService.currentUser!.fullName,
     };
     this.tasks.push(newTask);
     this.saveTasks();

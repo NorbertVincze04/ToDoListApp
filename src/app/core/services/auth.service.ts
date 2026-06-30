@@ -187,4 +187,8 @@ export class AuthService {
       return '';
     }
   }
+
+  get currentUser(): UserRecord | null {
+    return this.currentUserSubject.value;
+  }
 }

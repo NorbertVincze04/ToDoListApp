@@ -3,6 +3,7 @@ import { TasksService } from '../../../core/services/tasks.service';
 import { DatePipe } from '@angular/common';
 import { EventEmitter, Output } from '@angular/core';
 import { Task } from '../../../core/models/tasks.model';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,7 +13,10 @@ import { Task } from '../../../core/models/tasks.model';
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
-  constructor(private tasksService: TasksService) {}
+  constructor(
+    private tasksService: TasksService,
+    private authService: AuthService,
+  ) {}
   @Output() edit = new EventEmitter<Task>();
 
   get tasks() {
@@ -31,5 +35,9 @@ export class TasksComponent {
     if (task) {
       this.edit.emit(task);
     }
+  }
+
+  get userName() {
+    return this.authService.currentUser?.fullName;
   }
 }

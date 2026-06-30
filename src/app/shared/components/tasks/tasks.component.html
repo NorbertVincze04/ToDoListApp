@@ -1,7 +1,7 @@
 <div>
   <ul>
     @for (task of tasks; track task.id) {
-      @if (task.status === "pending") {
+      @if (task.status === "pending" && task.user === userName) {
         <li>
           <div>
             <p class="title">
