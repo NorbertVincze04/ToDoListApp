@@ -32,9 +32,13 @@ export class TasksService {
     }
 
     if (this.currentSort === 'Ascendent') {
-      tasks = tasks.sort((a, b) => (a.dueDate > b.dueDate ? 1 : -1));
+      tasks.sort(
+        (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+      );
     } else if (this.currentSort === 'Descendent') {
-      tasks = tasks.sort((a, b) => (a.dueDate < b.dueDate ? 1 : -1));
+      tasks.sort(
+        (a, b) => new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime(),
+      );
     }
 
     this.filteredTasks = tasks;
@@ -96,6 +100,7 @@ export class TasksService {
       task.priority = priority;
       task.dueDate = dueDate;
       this.saveTasks();
+      this.applyFiltersAndSort();
     }
   }
 

@@ -1,5 +1,6 @@
 .auth-div {
-  width: 90%;
+  height: auto;
+  width: 400px;
   max-width: 30rem;
   background-color: rgb(83, 82, 82);
   border-radius: 6px;
