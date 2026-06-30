@@ -1,0 +1,130 @@
+.auth-div {
+  width: 90%;
+  max-width: 30rem;
+  background-color: rgb(83, 82, 82);
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  padding: 1rem;
+  top: 5rem;
+  color: white;
+  z-index: 1000;
+}
+
+h2 {
+  text-underline-position: below;
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 255, 255);
+  text-underline-offset: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bc0;
+  box-shadow: 0 0 5px rgba(0, 123, 192, 0.5);
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container .form-control {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.visibility-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visibility-toggle:hover {
+  color: #007bc0;
+}
+
+.visibility-toggle:focus {
+  outline: none;
+}
+
+.form-submit {
+  align-self: center;
+  margin-top: 10px;
+  background-color: #007bc0;
+  color: white;
+  border: 0;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-submit:hover:not(:disabled) {
+  background-color: #0366a0;
+}
+
+.form-submit:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #c00;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.forgot-link,
+.register-link {
+  color: #007bc0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forgot-link:hover,
+.register-link:hover {
+  text-decoration: underline;
+}

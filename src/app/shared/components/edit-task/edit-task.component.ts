@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Task } from '../../models/tasks.model';
-import { TasksService } from '../tasks/tasks.service';
+import { Task } from '../../../core/models/tasks.model';
+import { TasksService } from '../../../core/services/tasks.service';
 
 @Component({
   selector: 'app-edit-task',

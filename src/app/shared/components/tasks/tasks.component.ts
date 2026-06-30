@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { TasksService } from './tasks.service';
+import { TasksService } from '../../../core/services/tasks.service';
 import { DatePipe } from '@angular/common';
 import { EventEmitter, Output } from '@angular/core';
-import { Task } from '../../models/tasks.model';
+import { Task } from '../../../core/models/tasks.model';
 
 @Component({
   selector: 'app-tasks',
