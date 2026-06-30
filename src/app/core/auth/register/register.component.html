@@ -1,4 +1,4 @@
-<div class="auth-div">
+<app-auth-div>
   <h2>Create Account</h2>
   <form [formGroup]="signUpForm" (ngSubmit)="onRegister()">
     <div class="form-group">
@@ -167,6 +167,8 @@
     </div>
   </form>
   <div class="form-links">
-    <a routerLink="/login" class="register-link">Already registered? Sign in</a>
+    <a (click)="onBackToSignIn()" class="register-link"
+      >Already registered? Sign in</a
+    >
   </div>
-</div>
+</app-auth-div>

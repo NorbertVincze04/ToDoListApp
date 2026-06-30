@@ -1,1 +1,90 @@
-<p>reset-pass works!</p>
+<app-auth-div>
+  <h2>Reset Your Password</h2>
+  <form [formGroup]="resetPassForm" (ngSubmit)="onResetPassword()">
+    <div class="form-group">
+      <label for="newPassword">New Password</label>
+      <div class="password-input-container">
+        <input
+          id="newPassword"
+          [type]="newPasswordVisible ? 'text' : 'password'"
+          formControlName="newPassword"
+          placeholder="Enter your new password"
+          class="form-control"
+          type="password"
+        />
+        <button
+          type="button"
+          class="visibility-toggle"
+          (click)="toggleNewPasswordVisibility()"
+          tabindex="-1"
+        >
+          <i
+            [class]="newPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"
+          ></i>
+        </button>
+      </div>
+      <div
+        *ngIf="newPassword?.invalid && (newPassword?.touched || submitted)"
+        class="field-error"
+      >
+        <span *ngIf="newPassword?.errors?.['required']"
+          >Password is required.</span
+        >
+        <span *ngIf="newPassword?.errors?.['minlength']"
+          >Password must be at least 6 characters.</span
+        >
+        <span *ngIf="newPassword?.errors?.['maxlength']"
+          >Password must be at most 10 characters.</span
+        >
+        <span *ngIf="newPassword?.errors?.['pattern']"
+          >Password must include an uppercase letter, a number, and a special
+          character.</span
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm New Password</label>
+      <div class="password-input-container">
+        <input
+          id="confirmPassword"
+          [type]="confirmPasswordVisible ? 'text' : 'password'"
+          formControlName="confirmPassword"
+          placeholder="Confirm your new password"
+          class="form-control"
+          type="password"
+        />
+        <button
+          type="button"
+          class="visibility-toggle"
+          (click)="toggleConfirmPasswordVisibility()"
+          tabindex="-1"
+        >
+          <i
+            [class]="confirmPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"
+          ></i>
+        </button>
+      </div>
+      <div
+        *ngIf="
+          resetPassForm.errors?.['passwordMismatch'] &&
+          resetPassForm.get('confirmPassword')?.touched
+        "
+        class="form-error"
+      >
+        Passwords do not match.
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="form-submit"
+      [disabled]="resetPassForm.invalid"
+    >
+      Reset Password
+    </button>
+    <div *ngIf="errorMessage" class="form-error">{{ errorMessage }}</div>
+  </form>
+
+  <div class="form-links">
+    <a (click)="onCancel()" class="cancel-link">Cancel</a>
+  </div>
+</app-auth-div>

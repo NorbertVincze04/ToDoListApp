@@ -9,11 +9,12 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { AuthDivComponent } from '../../../shared/ui-wrappers/auth-div/auth-div.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, AuthDivComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -125,5 +126,9 @@ export class RegisterComponent {
           this.registrationError = error.message;
         },
       });
+  }
+
+  onBackToSignIn() {
+    this.router.navigate(['/login']);
   }
 }

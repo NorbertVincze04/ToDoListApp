@@ -8,11 +8,12 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { AuthDivComponent } from '../../../shared/ui-wrappers/auth-div/auth-div.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, AuthDivComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
