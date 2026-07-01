@@ -73,7 +73,7 @@ export class ResetPassComponent implements OnInit {
 
     this.authService.resetPassword(newPassword).subscribe({
       next: () => {
-        this.router.navigate(['/booking']);
+        this.router.navigate(['/tasks']);
       },
       error: (error) => {
         this.errorMessage = error.message;
